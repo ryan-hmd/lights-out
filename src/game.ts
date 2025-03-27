@@ -14,7 +14,7 @@ function changeState(board: Board, i: number, j: number): Board {
     for (const [dx, dy] of directions) {
         const x = i + dx;
         const y = j + dy;
-        if (board[x] && board[x][y]) {
+        if (board[x] && board[x][y] !== undefined) {
             board[x][y] = (board[x][y] + 1) % 2;
         }
     }
