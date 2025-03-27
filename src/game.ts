@@ -5,6 +5,7 @@ type Board = number[][];
  */
 function changeState(board: Board, i: number, j: number): Board {
     const directions = [
+        [0, 0],
         [0, 1],
         [0, -1],
         [1, 0],
