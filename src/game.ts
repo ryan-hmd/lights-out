@@ -16,7 +16,7 @@ function changeState(board: Board, i: number, j: number): Board {
         const x = i + dx;
         const y = j + dy;
         if (board[x] && board[x][y] !== undefined) {
-            board[x][y] = (board[x][y] + 1) % 2;
+            board[x][y] = 1 - board[x][y];
         }
     }
 
