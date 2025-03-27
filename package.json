@@ -1,0 +1,14 @@
+{
+    "name": "lights-out",
+    "version": "1.0.0",
+    "main": "index.js",
+    "description": "Turn all the lights of this native javascript mind game",
+    "scripts": {
+        "build": "tsc"
+    },
+    "author": "ryanhmd",
+    "license": "ISC",
+    "devDependencies": {
+        "typescript": "^5.8.2"
+    }
+}
