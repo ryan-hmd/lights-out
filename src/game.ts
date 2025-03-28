@@ -50,3 +50,10 @@ function changeState(board: Board, i: number, j: number): Board {
 
     return board;
 }
+
+/**
+ * Return a boolean indicating if the board is solved.
+ */
+function isWin(board: Board): boolean {
+    return board.every((line) => !line.includes(1));
+}
