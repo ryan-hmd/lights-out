@@ -1,13 +1,13 @@
 {
     "name": "lights-out",
     "version": "1.0.0",
-    "main": "index.js",
-    "description": "Turn all the lights of this native javascript mind game",
+    "description": "Light's out is a mind game in which you have to turn off all the lights in a grid.",
     "scripts": {
         "build": "tsc"
     },
     "author": "ryanhmd",
-    "license": "ISC",
+    "repository": "github:ryan-hmd/lights-out",
+    "license": "MIT",
     "devDependencies": {
         "typescript": "^5.8.2"
     }
