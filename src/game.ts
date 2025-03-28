@@ -1,6 +1,21 @@
 type Board = number[][];
 
 /**
+ * Return a shuffled board with the given dimensions.
+ * The board is shuffled with an odd number of random moves to ensure it is solvable, and not null.
+ */
+function generateBoard(x: number, y: number): Board {
+    const dimX = Math.max(+x, +y) || 7;
+    const dimY = Math.min(+x, +y) || 5;
+
+    const board = Array.from({ length: dimY }, () =>
+        Array.from({ length: dimX }, () => 0)
+    );
+
+    return shuffle(board, 2 * (dimX + dimY) + 1);
+}
+
+/**
  * Shuffle a given board a given number of times.
  */
 function shuffle(board: Board, shuffles: number): Board {
