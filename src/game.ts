@@ -1,5 +1,5 @@
 class Board {
-    board: number[][];
+    board: (1 | 0)[][];
     dimX: number;
     dimY: number;
 
@@ -47,16 +47,32 @@ class Board {
             const x = i + dx;
             const y = j + dy;
             if (this.board[x] && this.board[x][y] !== undefined) {
-                this.board[x][y] = 1 - this.board[x][y];
+                this.board[x][y] = (1 - this.board[x][y]) as 1 | 0;
             }
         }
         return this.board;
     }
 
     /**
-     * Return a boolean indicating if the board is solved.
+     * Determine if the board is solved.
      */
     isWin(): boolean {
         return this.board.every((line) => !line.includes(1));
+    }
+
+    /**
+     * Set vertical dimension of the board.
+     */
+    setY(y: number) {
+        this.dimY = y;
+        return this;
+    }
+
+    /**
+     * Set horizontal dimension of the board.
+     */
+    setX(x: number) {
+        this.dimX = x;
+        return this;
     }
 }
