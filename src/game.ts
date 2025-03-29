@@ -1,59 +1,62 @@
-type Board = number[][];
+class Board {
+    board: number[][];
+    dimX: number;
+    dimY: number;
 
-/**
- * Return a shuffled board with the given dimensions.
- * The board is shuffled with an odd number of random moves to ensure it is solvable, and not null.
- */
-function generateBoard(x: number, y: number): Board {
-    const dimX = Math.max(+x, +y) || 7;
-    const dimY = Math.min(+x, +y) || 5;
-
-    const board = Array.from({ length: dimY }, () =>
-        Array.from({ length: dimX }, () => 0)
-    );
-
-    return shuffle(board, 2 * (dimX + dimY) + 1);
-}
-
-/**
- * Shuffle a given board a given number of times.
- */
-function shuffle(board: Board, shuffles: number): Board {
-    for (let k = 1; k <= shuffles; k++) {
-        const i = Math.floor(Math.random() * board.length);
-        const j = Math.floor(Math.random() * board[0].length);
-        board = changeState(board, i, j);
+    constructor(x: number, y: number) {
+        this.dimX = Math.max(+x, +y) || 7;
+        this.dimY = Math.min(+x, +y) || 5;
+        this.board = this.generateBoard(this.dimX, this.dimY);
     }
 
-    return board;
-}
+    /**
+     * Return a shuffled board with the given dimensions.
+     * The board is shuffled with an odd number of random moves to ensure it is solvable, and not null.
+     */
+    generateBoard(x: number, y: number) {
+        this.board = Array.from({ length: y }, () =>
+            Array.from({ length: x }, () => 0)
+        );
+        return this.shuffle();
+    }
 
-/**
- * Change the state of a case and its adjacent in a given board.
- */
-function changeState(board: Board, i: number, j: number): Board {
-    const directions = [
-        [0, 0],
-        [0, 1],
-        [0, -1],
-        [1, 0],
-        [-1, 0],
-    ];
-
-    for (const [dx, dy] of directions) {
-        const x = i + dx;
-        const y = j + dy;
-        if (board[x] && board[x][y] !== undefined) {
-            board[x][y] = 1 - board[x][y];
+    /**
+     * Shuffle a given board a given number of times.
+     */
+    shuffle(shuffles: number = 2 * (this.dimX + this.dimY) + 1) {
+        for (let k = 1; k <= shuffles; k++) {
+            const i = Math.floor(Math.random() * this.board.length);
+            const j = Math.floor(Math.random() * this.board[0].length);
+            this.changeState(i, j);
         }
+        return this.board;
     }
 
-    return board;
-}
+    /**
+     * Change the state of a case and its adjacent in a given board.
+     */
+    changeState(i: number, j: number) {
+        const directions = [
+            [0, 0],
+            [0, 1],
+            [0, -1],
+            [1, 0],
+            [-1, 0],
+        ];
+        for (const [dx, dy] of directions) {
+            const x = i + dx;
+            const y = j + dy;
+            if (this.board[x] && this.board[x][y] !== undefined) {
+                this.board[x][y] = 1 - this.board[x][y];
+            }
+        }
+        return this.board;
+    }
 
-/**
- * Return a boolean indicating if the board is solved.
- */
-function isWin(board: Board): boolean {
-    return board.every((line) => !line.includes(1));
+    /**
+     * Return a boolean indicating if the board is solved.
+     */
+    isWin(): boolean {
+        return this.board.every((line) => !line.includes(1));
+    }
 }
