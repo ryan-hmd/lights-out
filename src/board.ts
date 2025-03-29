@@ -17,7 +17,8 @@ class Board {
         this.grid = Array.from({ length: y }, () =>
             Array.from({ length: x }, () => 0)
         );
-        return this.shuffle();
+        this.shuffle();
+        return this.grid;
     }
 
     /**
@@ -29,7 +30,7 @@ class Board {
             const j = Math.floor(Math.random() * this.grid[0].length);
             this.changeState(i, j);
         }
-        return this.grid;
+        return this;
     }
 
     /**
@@ -50,7 +51,7 @@ class Board {
                 this.grid[x][y] = (1 - this.grid[x][y]) as 1 | 0;
             }
         }
-        return this.grid;
+        return this;
     }
 
     /**
