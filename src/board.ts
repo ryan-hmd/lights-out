@@ -33,7 +33,7 @@ class Board {
     }
 
     /**
-     * Change the state of a case and its adjacent in a given board.
+     * Change the state of a cell and its adjacent cells in a given board.
      */
     changeState(i: number, j: number) {
         const directions = [
