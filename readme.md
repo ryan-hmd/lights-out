@@ -1,10 +1,10 @@
 # Light's Out
 
-Light's Out is a classic puzzle game where the objective is to turn off all the lights on a grid. The game starts with a grid of lights that can be either on (lit) or off (unlit). All the grid are randomly generated but **always** solvable.
+Light's Out is a classic puzzle game where the objective is to turn off all the lights on a grid. The game starts with a grid of lights that can be either on or off. All the grid are randomly generated but **always** solvable.
 
 ## How to Play
 
-The grid consists of `m * n` cells, each of which can be either on or off. Clicking a cell toggles its state (on to off or off to on) and also toggles the state of its adjacent cells (up, down, left, right). The challenge lies in finding the right sequence of clicks to turn off all the lights.
+The grid consists of `m * n` cells, each of which can be either on (indigo) or off (white). Clicking a cell toggles its state and also toggles the state of its adjacent cells (up, down, left, right). The challenge lies in finding the right sequence of clicks to turn off all the lights.
 
 The game is won when all the cells in the grid are turned off.
 
@@ -13,7 +13,7 @@ The game is won when all the cells in the grid are turned off.
 1. Clone the project:
 
     ```bash
-    git clone https://github.com/username/lights-out.git
+    git clone https://github.com/ryan-hmd/lights-out.git
     cd lights-out
     ```
 
