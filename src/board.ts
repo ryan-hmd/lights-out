@@ -1,9 +1,10 @@
 class Board {
     grid: (1 | 0)[][];
+    attempt: number = 0;
     dimX: number;
     dimY: number;
 
-    constructor(x: number, y: number) {
+    constructor(x: any, y: any) {
         this.dimX = Math.max(+x, +y) || 7;
         this.dimY = Math.min(+x, +y) || 5;
         this.grid = this.generateBoard(this.dimX, this.dimY);
@@ -51,6 +52,7 @@ class Board {
                 this.grid[x][y] = (1 - this.grid[x][y]) as 1 | 0;
             }
         }
+        this.attempt++;
         return this;
     }
 
