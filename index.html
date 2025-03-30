@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Light's Out - A Javascript mind game</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="./build/board.js" defer></script>
+        <script src="./build/engine.js" defer></script>
+        <script src="./build/game.js" defer></script>
+        <style>
+            .light {
+                flex-shrink: 0;
+                background-color: white;
+                border-radius: 5px;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                cursor: pointer;
+                width: 50px;
+                height: 50px;
+            }
+            #game .light.on {
+                background-color: oklch(0.585 0.233 277.117) !important;
+            }
+            #game .game-grid,
+            #game .game-grid > div {
+                gap: 5px;
+            }
+            #game .game-grid {
+                width: calc(100vw - 24px);
+                overflow: auto;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 4px;
+            }
+            #game .game-grid > div {
+                justify-content: center;
+                display: flex;
+                flex-direction: row;
+                flex-shrink: 0;
+            }
+            #game > .attempts {
+                margin-top: 8px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body class="bg-neutral-200">
+        <div class="text-zinc-700 text-sm mt-4">
+            <aside class="text-center mb-4 text-xs">
+                Checkout this game on my
+                <a
+                    href="https://github.com/ryan-hmd/lights-out"
+                    target="_blank"
+                    class="text-indigo-500 font-medium"
+                    >GitHub</a
+                >👍
+            </aside>
+            <header class="text-center">
+                <h1 class="font-semibold text-xl mb-4">
+                    Light's Out : the mind game !
+                </h1>
+                <div>
+                    <p class="mb-2">
+                        Click on a light to toggle it and its adjacent lights.
+                        <br />
+                        Turn all the lights off to win !
+                    </p>
+                    <p class="text-xs">
+                        <b>NB: </b>all grids are randomly generated but
+                        <u>always</u>
+                        solvable.
+                    </p>
+                </div>
+            </header>
+            <main>
+                <div id="game" class="my-6 text-center"></div>
+
+                <form id="settings" class="*:shadow-sm text-center space-x-2">
+                    <input
+                        name="dimX"
+                        placeholder="Horizontal (default: 7)"
+                        type="number"
+                        min="1"
+                        autocomplete="off"
+                        class="bg-white rounded-md text-center px-4 py-2"
+                    />
+                    <input
+                        name="dimY"
+                        placeholder="Vertical (default: 5)"
+                        type="number"
+                        min="1"
+                        autocomplete="off"
+                        class="bg-white rounded-md text-center px-4 py-2"
+                    />
+                    <button
+                        type="submit"
+                        class="bg-indigo-500 rounded-md text-white font-semibold cursor-pointer px-4 py-2"
+                    >
+                        Start game
+                    </button>
+                </form>
+            </main>
+            <aside class="text-center">
+                <p class="mt-2 text-xs">
+                    Defaults sizes are used if you enter invalid size.
+                    <br />
+                    <b>Note : </b>values are permuted if vertical value is
+                    greater than horizontal value.
+                </p>
+            </aside>
+        </div>
+    </body>
+</html>
