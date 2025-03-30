@@ -44,7 +44,7 @@ class Engine {
                 cellDiv.className = "light";
                 cellDiv.classList.toggle("on", !!cell);
                 cellDiv.addEventListener("click", () => {
-                    board.changeState(x, y);
+                    board.hit(x, y);
                     this.render(board);
                 });
                 rowDiv.appendChild(cellDiv);

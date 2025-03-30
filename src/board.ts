@@ -29,7 +29,7 @@ class Board {
         for (let k = 1; k <= shuffles; k++) {
             const i = Math.floor(Math.random() * this.grid.length);
             const j = Math.floor(Math.random() * this.grid[0].length);
-            this.changeState(i, j);
+            this.hit(i, j);
         }
         this.attempt = 0;
         return this;
@@ -38,7 +38,7 @@ class Board {
     /**
      * Change the state of a cell and its adjacent cells in a given board.
      */
-    changeState(i: number, j: number) {
+    hit(i: number, j: number) {
         const directions = [
             [0, 0],
             [0, 1],
