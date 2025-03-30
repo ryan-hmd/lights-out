@@ -31,6 +31,7 @@ class Board {
             const j = Math.floor(Math.random() * this.grid[0].length);
             this.changeState(i, j);
         }
+        this.attempt = 0;
         return this;
     }
 
