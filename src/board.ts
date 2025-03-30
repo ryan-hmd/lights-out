@@ -63,20 +63,4 @@ class Board {
     isWin(): boolean {
         return this.grid.every((row) => !row.includes(1));
     }
-
-    /**
-     * Set vertical dimension of the board.
-     */
-    setY(y: number) {
-        this.dimY = y;
-        return this;
-    }
-
-    /**
-     * Set horizontal dimension of the board.
-     */
-    setX(x: number) {
-        this.dimX = x;
-        return this;
-    }
 }
