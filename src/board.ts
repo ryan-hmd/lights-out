@@ -36,9 +36,9 @@ class Board {
     }
 
     /**
-     * Change the state of a cell and its adjacent cells in a given board.
+     * Get a cell and its adjacent cells.
      */
-    hit(i: number, j: number) {
+    adjacents(i: number, j: number) {
         const directions = [
             [0, 0],
             [0, 1],
@@ -46,13 +46,18 @@ class Board {
             [1, 0],
             [-1, 0],
         ];
-        for (const [dx, dy] of directions) {
-            const x = i + dx;
-            const y = j + dy;
-            if (this.grid[x] && this.grid[x][y] !== undefined) {
-                this.grid[x][y] = (1 - this.grid[x][y]) as 1 | 0;
-            }
-        }
+        return directions
+            .map(([dx, dy]) => [i + dx, j + dy])
+            .filter(([x, y]) => this.grid[x] && this.grid[x][y] !== undefined);
+    }
+
+    /**
+     * Change the state of a cell and its adjacent cells in a given board.
+     */
+    hit(i: number, j: number) {
+        this.adjacents(i, j).forEach(([x, y]) => {
+            this.grid[x][y] = (1 - this.grid[x][y]) as 1 | 0;
+        });
         this.attempt++;
         return this;
     }
