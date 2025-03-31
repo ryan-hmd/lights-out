@@ -9,6 +9,14 @@
         <script src="./build/engine.js" defer></script>
         <script src="./build/game.js" defer></script>
         <style>
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+            input[type="number"] {
+                -moz-appearance: textfield;
+            }
             .light {
                 flex-shrink: 0;
                 background-color: white;
@@ -74,40 +82,52 @@
                 </div>
             </header>
             <main>
-                <div id="game" class="my-6 text-center"></div>
+                <div id="game" class="my-8 text-center"></div>
 
-                <form id="settings" class="*:shadow-sm text-center space-x-2">
-                    <input
-                        name="dimX"
-                        placeholder="Horizontal (default: 7)"
-                        type="number"
-                        min="1"
-                        autocomplete="off"
-                        class="bg-white rounded-md text-center px-4 py-2"
-                    />
-                    <input
-                        name="dimY"
-                        placeholder="Vertical (default: 5)"
-                        type="number"
-                        min="1"
-                        autocomplete="off"
-                        class="bg-white rounded-md text-center px-4 py-2"
-                    />
+                <form
+                    id="settings"
+                    class="flex flex-col sm:flex-row gap-2 w-fit justify-center mx-auto"
+                >
+                    <div
+                        class="flex bg-white w-fit items-center rounded-md relative"
+                    >
+                        <label
+                            for="dimX"
+                            class="absolute -top-4.5 left-1 text-xs font-semibold text-neutral-500"
+                            >Grid size</label
+                        >
+                        <input
+                            id="dimX"
+                            name="dimX"
+                            placeholder="7"
+                            type="number"
+                            min="1"
+                            class="field-sizing-content min-w-[50px] text-center px-4 py-2"
+                            autocomplete="off"
+                        />
+                        <div class="font-semibold text-xl pb-1 text-gray-400">
+                            &times;
+                        </div>
+                        <input
+                            name="dimY"
+                            placeholder="5"
+                            type="number"
+                            min="1"
+                            class="field-sizing-content min-w-[50px] text-center px-4 py-2"
+                            autocomplete="off"
+                        />
+                    </div>
                     <button
                         type="submit"
-                        class="bg-indigo-500 rounded-md text-white font-semibold cursor-pointer px-4 py-2"
+                        class="bg-indigo-500 text-white font-semibold cursor-pointer px-4 py-2 rounded-md"
                     >
                         Start game
                     </button>
                 </form>
             </main>
-            <aside class="text-center">
-                <p class="mt-2 text-xs">
-                    Defaults sizes are used if you enter invalid size.
-                    <br />
-                    <b>Note : </b>values are permuted if vertical value is
-                    greater than horizontal value.
-                </p>
+            <aside class="text-xs text-center text-neutral-400 mt-2">
+                <b>Note : </b>values are permuted if vertical value is greater
+                than horizontal value.
             </aside>
         </div>
     </body>
