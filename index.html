@@ -53,7 +53,7 @@
             }
         </style>
     </head>
-    <body class="bg-neutral-200">
+    <body class="bg-neutral-100">
         <div class="text-zinc-700 text-sm mt-4">
             <aside class="text-center mb-4 text-xs">
                 Checkout this game on my
@@ -74,11 +74,6 @@
                         <br />
                         Turn all the lights off to win !
                     </p>
-                    <p class="text-xs">
-                        <b>NB: </b>all grids are randomly generated but
-                        <u>always</u>
-                        solvable.
-                    </p>
                 </div>
             </header>
             <main>
@@ -86,7 +81,7 @@
 
                 <form
                     id="settings"
-                    class="flex flex-col sm:flex-row gap-2 w-fit justify-center mx-auto"
+                    class="flex flex-col sm:flex-row gap-2 w-fit justify-center mx-auto *:shadow-sm"
                 >
                     <div
                         class="flex bg-white w-fit items-center rounded-md relative"
@@ -125,9 +120,12 @@
                     </button>
                 </form>
             </main>
-            <aside class="text-xs text-center text-neutral-400 mt-2">
-                <b>Note : </b>values are permuted if vertical value is greater
-                than horizontal value.
+            <aside class="text-xs text-center text-neutral-400 mt-3">
+                <b>Note : </b>All grids are randomly generated but
+                <u>always</u>
+                solvable.
+                <br />
+                Sizes are permuted if needed to make the grid horizontal.
             </aside>
         </div>
     </body>
